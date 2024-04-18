@@ -6,12 +6,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production bun src/index.ts",
     "dev": "bun run --watch src/index.ts",
-    "build": "bun build src/index.ts --outdir dist",
+    "build": "bun build src/index.ts --env-file=.env --outdir dist --target node",
     "prisma:init": "bunx prisma init"
   },
   "dependencies": {
     "@prisma/client": "^5.12.1",
-    "dotenv": "^16.4.5",
     "elysia": "^1.0.13",
     "mysql2": "^3.9.5",
     "nanoid": "^5.0.7",
