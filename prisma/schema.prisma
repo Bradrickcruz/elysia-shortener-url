@@ -9,7 +9,7 @@ datasource db {
 
 model url {
   id        Int      @id @default(autoincrement())
-  long_url   String
+  long_url   String @db.Text
   short_url  String
   unique_id  String
   createdAt DateTime @default(now())
