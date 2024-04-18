@@ -11,11 +11,11 @@ export async function shortenUrl(longUrl: string) {
 
     const urlExists = await prisma.url.findFirst({
       where: {
-        longUrl,
+        long_url: longUrl,
       },
     });
 
-    if (urlExists) return urlExists.shortUrl;
+    if (urlExists) return urlExists.short_url;
 
     const baseURL = process.env.BASE_URL;
     const uniqueId = nanoid(10);
@@ -23,15 +23,15 @@ export async function shortenUrl(longUrl: string) {
 
     const url = await prisma.url.create({
       data: {
-        longUrl,
-        shortUrl,
-        uniqueId,
+        long_url: longUrl,
+        short_url: shortUrl,
+        unique_id: uniqueId,
       },
     });
 
     return {
       message: "URL shortened successfully",
-      shortUrl: url.shortUrl,
+      shortUrl: url.short_url,
     };
   } catch (error) {
     throw error;
@@ -42,7 +42,7 @@ export async function fetchUrl(urlUniqueId: string) {
   try {
     const url = await prisma.url.findFirst({
       where: {
-        uniqueId: urlUniqueId,
+        unique_id: urlUniqueId,
       },
     });
 

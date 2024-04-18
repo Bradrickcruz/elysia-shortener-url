@@ -13,7 +13,7 @@ export const urlController = (app: Elysia) => {
     const url = await fetchUrl(uniqueId);
     if (url) {
       context.set.status = 301;
-      context.set.redirect = url.longUrl;
+      context.set.redirect = url.long_url;
     } else {
       context.set.status = 404;
       return {
