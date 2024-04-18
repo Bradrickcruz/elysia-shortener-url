@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { nanoid } from "nanoid";
-import { isURLValid } from "./utils";
+import { isURLValid } from "./shortener.utils";
 
 const prisma = new PrismaClient();
 
