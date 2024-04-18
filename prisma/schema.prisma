@@ -7,10 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Url {
+model url {
   id        Int      @id @default(autoincrement())
-  longUrl   String
-  shortUrl  String
-  uniqueId  String
+  long_url   String
+  short_url  String
+  unique_id  String
   createdAt DateTime @default(now())
 }
